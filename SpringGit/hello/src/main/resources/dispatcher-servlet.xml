@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--1.注解驱动-->
+    <!--<mvc:annotation-driven/>-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <!-- @ResponseBody乱码问题，将StringHttpMessageConverter的默认编码设为UTF-8 -->
+            <beans:bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <beans:constructor-arg value="UTF-8" />
+            </beans:bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <!--2.静态资源过滤-->
+    <mvc:default-servlet-handler/>
+    <!--3.扫描包controller-->
+    <!--<context:component-scan base-package="com.ty.controller"/>-->
+    <!-- 控制器扫描 -->
+    <context:component-scan base-package="com.study.springmvc" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+    <!--4.视图解析器-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>
