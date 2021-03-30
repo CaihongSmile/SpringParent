@@ -38,7 +38,7 @@ public class UserController {
     @RequestMapping("/t1")
     public String insert(Model model) {
         User user = new User();
-        user.setId("18");
+        user.setId("19");
         user.setName("王8呆");
         user.setSex("男");
         int res = userService.insert(user);
