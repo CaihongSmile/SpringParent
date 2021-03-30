@@ -1,0 +1,58 @@
+table.showtable {
+		width:100%;
+		height:auto;
+		border:1px solid #ccc;
+		border-collapse: collapse;
+}
+
+	table.showtable thead tr th {
+		text-align:center;
+		border:1px solid #ccc;
+		height: 22px;
+		line-height:22px;
+		background-color:#e4e7e8;
+	}
+
+	table.showtable tbody tr th {
+		border:1px solid #ccc;
+	}
+	table.showtable tbody tr td {
+		border:1px solid #ccc;
+		height: 22px;
+		line-height:22px;
+	}
+	
+	table.showtable .label-fmt{
+		text-align:center;
+		background-color:#e4e7e8
+	}
+	
+	table.showtable .input-fmt{
+		text-align:left;
+	}
+	
+	table.showtable  td{
+		word-wrap:break-word;
+		word-break:break-all;
+	}
+	
+	.label-top{
+	    font-weight: bolder;
+    	color: #509cad;
+    }
+    
+	.unstar{
+		display:block;
+		background:url('../image/unstar.png') no-repeat;
+		width:18px;
+		height:18px;
+		background-size: 100% 100%;
+	}
+	
+	.star{
+		display:block;
+		background:url('../image/star.png') no-repeat;
+		width:18px;
+		height:18px;
+		background-size: 100% 100%;
+	}
